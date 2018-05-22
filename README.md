@@ -119,6 +119,9 @@ data
 若想忽略warning输出：   
 `python -W ignore run_cnn.py train`
 
+保存模型的代码最好要改一下,现在train一次,会覆盖上次train的结果和checkpoints.         
+最好写成train一次就保存成一个独立的文件夹.              
+
 > 若之前进行过训练，请把tensorboard/textcnn删除，避免TensorBoard多次训练结果重叠。
 
 ```
@@ -153,6 +156,26 @@ No optimization for a long time, auto-stopping...
 ```
 
 在验证集上的最佳效果为94.12%，且只经过了3轮迭代就已经停止。
+
+设定了10epoch，4次epoch后停止。
+```
+Epoch: 3
+Iter:   1600, Train Loss:  0.017, Train Acc: 100.00%, Val Loss:   0.19, Val Acc:  94.90%, Time: 0:18:10 
+Iter:   1700, Train Loss: 0.0086, Train Acc: 100.00%, Val Loss:   0.18, Val Acc:  95.08%, Time: 0:19:21 
+Iter:   1800, Train Loss:  0.023, Train Acc: 100.00%, Val Loss:   0.17, Val Acc:  95.16%, Time: 0:20:28 
+Iter:   1900, Train Loss:  0.043, Train Acc:  98.44%, Val Loss:   0.19, Val Acc:  94.48%, Time: 0:21:33 
+Iter:   2000, Train Loss:    0.1, Train Acc:  98.44%, Val Loss:    0.2, Val Acc:  94.62%, Time: 0:22:38 
+Iter:   2100, Train Loss:  0.032, Train Acc:  98.44%, Val Loss:   0.19, Val Acc:  94.58%, Time: 0:23:46 
+Iter:   2200, Train Loss:   0.18, Train Acc:  95.31%, Val Loss:    0.2, Val Acc:  94.24%, Time: 0:24:49 
+Iter:   2300, Train Loss:  0.034, Train Acc:  98.44%, Val Loss:   0.18, Val Acc:  95.04%, Time: 0:25:57 
+Epoch: 4
+Iter:   2400, Train Loss:  0.016, Train Acc: 100.00%, Val Loss:   0.18, Val Acc:  95.34%, Time: 0:27:12 
+Iter:   2500, Train Loss: 0.0025, Train Acc: 100.00%, Val Loss:   0.19, Val Acc:  95.60%, Time: 0:28:24 
+No optimization for a long time, auto-stopping...
+
+Process finished with exit code 0
+```
+
 
 准确率和误差如图所示：
 
