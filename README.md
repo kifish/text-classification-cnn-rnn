@@ -55,7 +55,7 @@ CNN做句子分类的论文可以参看: [Convolutional Neural Networks for Sent
 - `read_vocab()`: 读取上一步存储的词汇表，转换为`{词：id}`表示;
 - `read_category()`: 将分类目录固定，转换为`{类别: id}`表示;
 - `to_words()`: 将一条由id表示的数据重新转换为文字;
-- `preocess_file()`: 将数据集从文字转换为固定长度的id序列表示;
+- `process_file()`: 将数据集从文字转换为固定长度的id序列表示;
 - `batch_iter()`: 为神经网络的训练准备经过shuffle的批次的数据。
 
 经过数据预处理，数据的格式如下：
@@ -105,7 +105,19 @@ class TCNNConfig(object):
 
 ### 训练与验证
 
-运行 `python run_cnn.py train`，可以开始训练。
+下载cnews，目录结构如下
+```  
+data         
+  -cnews              
+     -cnews.test.txt      
+     -cnews.train.txt        
+     -cnews.val.txt             
+     -cnews.vocab.txt    
+```            
+    
+运行 `python run_cnn.py train`，可以开始训练。      
+若想忽略warning输出：   
+`python -W ignore run_cnn.py train`
 
 > 若之前进行过训练，请把tensorboard/textcnn删除，避免TensorBoard多次训练结果重叠。
 
